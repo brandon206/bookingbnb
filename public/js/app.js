@@ -52834,7 +52834,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
-/* harmony import */ var _components_Example2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Example2 */ "./resources/js/components/Example2.vue");
+/* harmony import */ var _components_Example2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Example2 */ "./resources/js/components/Example2.vue");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 
 
@@ -52845,7 +52845,7 @@ var routes = [{
   name: 'home'
 }, {
   path: "/second",
-  component: _components_Example2__WEBPACK_IMPORTED_MODULE_1__["default"],
+  component: _components_Example2__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: 'second'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
