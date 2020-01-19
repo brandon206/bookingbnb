@@ -6,12 +6,12 @@
         <div v-else>
             <div class="row mb-4" v-for="row in rows" :key="'row' + row">
                 <div
-                    class="col"
+                    class="col d-flex align-items-stretch"
                     v-for="(bookable, column) in bookablesInRow(row)"
                     :key="'row' + row + column">
                     <BookableListItem
                         :item-title="bookable.title"
-                        :item-content="bookable.content"
+                        :item-description="bookable.description"
                         :price="1000"
                     />
                 </div>
@@ -53,40 +53,13 @@ export default {
     },
     created() {
         this.loading = true;
-        // simulating grabbing data from db
-        setTimeout(() => {
-            this.bookables = [
-                {
-                    title: "Cheap Villa!!!",
-                    content: 'A very cheap villa'
-                },
-                {
-                    title: "Cheap Villa 2",
-                    content: 'A very cheap villa 2'
-                },
-                {
-                    title: "Cheap Villa!!!",
-                    content: 'A very cheap villa'
-                },
-                {
-                    title: "Cheap Villa 2",
-                    content: 'A very cheap villa 2'
-                },
-                {
-                    title: "Cheap Villa!!!",
-                    content: 'A very cheap villa'
-                },
-                {
-                    title: "Cheap Villa 2",
-                    content: 'A very cheap villa 2'
-                },
-                {
-                    title: "Cheap Villa 2",
-                    content: 'A very cheap villa 2'
-                },
-            ];
-            this.loading = false;
-        }, 2000);
+
+        const request = axios
+            .get("/api/bookables")
+            .then(response => {
+                this.bookables = response.data;
+                this.loading = false;
+            });
     },
 }
 </script>
