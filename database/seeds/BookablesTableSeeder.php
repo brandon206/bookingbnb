@@ -12,6 +12,6 @@ class BookablesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Bookable::class, 100)->make();
+        factory(Bookable::class, 100)->create();
     }
 }

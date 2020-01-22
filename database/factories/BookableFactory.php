@@ -15,12 +15,12 @@ $suffix = [
     'Rooms',
     'Cheap Rooms',
     'Luxury Rooms',
-    'Fancy Rooms',
+    'Fancy Rooms'
 ];
 
 $factory->define(Bookable::class, function (Faker $faker) use ($suffix) {
     return [
         'title' => $faker->city . ' ' . Arr::random($suffix),
-        'description' => $faker->text(),
+        'description' => $faker->text()
     ];
 });
