@@ -1,8 +1,8 @@
 <template>
-  <div class="row">
-      <div class="col-md-8 pb-4">
-          <div class="card">
-              <div class="card-body">
+    <div class="row">
+        <div class="col-md-8 pb-4">
+            <div class="card">
+                <div class="card-body">
                     <div v-if="! this.loading">
                         <h2>{{ bookable.title }}</h2>
                         <hr/>
@@ -11,20 +11,23 @@
                     <div v-else>
                         Loading...
                     </div>
-              </div>
-          </div>
-      </div>
-    <div class="col-md-4 pb-4">
-      <Availability />
+                </div>
+            </div>
+            <ReviewList />
+        </div>
+        <div class="col-md-4 pb-4">
+            <Availability />
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 import Availability from "./Availability";
+import ReviewList from "./ReviewList";
 export default {
     components: {
         Availability,
+        ReviewList,
     },
     data() {
         return {
