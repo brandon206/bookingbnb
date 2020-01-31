@@ -7,7 +7,7 @@
                 <div class="row pt-4">
                     <div class="col-md-6">John Doe</div>
                     <div class="col-md-6 d-flex justify-content-end">
-                        <StarRating :rating="review.rating" class="fa-lg" />
+                        <StarRating :value="review.rating" class="fa-lg" />
                     </div>
                 </div>
                 <div class="row">
