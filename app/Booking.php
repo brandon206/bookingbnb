@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 class Booking extends Model
 {
@@ -24,5 +25,15 @@ class Booking extends Model
     {
         return $query->where('to', '>=', $from)
             ->where('from', '<=', $to);
+    }
+
+    protected static function boot ()
+    {
+        //this function will overwrite the Eloquent Model's default boot function
+        parent::boot();
+        //to register an event, refers to this class statically 
+        static::creating(function ($booking) {
+            $booking->review_key = Str::uuid();
+        });
     }
 }
