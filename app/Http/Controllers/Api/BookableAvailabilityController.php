@@ -18,7 +18,7 @@ class BookableAvailabilityController extends Controller
     {
         $data = $request->validate([
             'from' => 'required|date_format:Y-m-d|after_or_equal:now',
-            'to' => 'required|date_format:Y-m-d|after_or_equal:$from',
+            'to' => 'required|date_format:Y-m-d|after_or_equal:from',
         ]);
         
         $bookable = Bookable::findOrFail($id);

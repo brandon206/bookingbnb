@@ -39,13 +39,8 @@
                 v-model="review.content"
                 :class="[{'is-invalid': errorFor('content')}]"
               ></textarea>
-              <div
-                class="invalid-feedback"
-                v-for="(error, index) in errorFor('content')"
-                :key="'content' + index"
-              >{{ error }}</div>
+              <v-errors :errors="errorFor('content')"></v-errors>
             </div>
-
             <button
               class="btn btn-lg btn-primary btn-block"
               @click.prevent="submit"
@@ -60,7 +55,9 @@
 
 <script>
 import { is404, is422 } from "./../shared/utils/response";
+import validationErrors from "./../shared/mixins/validationErrors";
 export default {
+  mixins: [validationErrors],
   data() {
     return {
       review: {
@@ -72,7 +69,6 @@ export default {
       loading: false,
       booking: null,
       error: false,
-      errors: null,
       sending: false,
     };
   },
@@ -140,11 +136,6 @@ export default {
         })
         .then(() => (this.sending = false));
     },
-    errorFor(field) {
-      return null !== this.errors && this.errors[field]
-        ? this.errors[field]
-        : null;
-    }
   }
 };
 </script>
